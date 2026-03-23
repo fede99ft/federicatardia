@@ -11,292 +11,422 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:Georgia,serif;background:#FAFAF7;color:#1C1C1A;overflow-x:hidden}
-    .fade-in { animation: fadeIn 0.6s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel">
-    const { useState, useEffect } = React;
+  <script type="text/babel" data-presets="react">
+const { useState, useEffect } = React;
 
-    const C = {
-      sage:       "#8AAF8E",
-      sageDark:   "#5E8A63",
-      sageDeep:   "#3A6140",
-      sageLight:  "#B5CDB8",
-      sagePale:   "#EAF2EB",
-      sageFog:    "#F3F8F3",
-      salmon:     "#E8836A",
-      salmonDark: "#C9604A",
-      salmonLight:"#F4A99A",
-      salmonPale: "#FDF0ED",
-      salmonFog:  "#FEF7F5",
-      cream:      "#FAFAF7",
-      white:      "#FFFFFF",
-      charcoal:   "#1C1C1A",
-      mid:        "#5A6B5C",
-      light:      "#DDEADD",
-    };
+const C = {
+  sage:       "#8AAF8E",
+  sageDark:   "#5E8A63",
+  sageDeep:   "#3A6140",
+  sageLight:  "#B5CDB8",
+  sagePale:   "#EAF2EB",
+  sageFog:    "#F3F8F3",
+  salmon:     "#E8836A",
+  salmonDark: "#C9604A",
+  salmonLight:"#F4A99A",
+  salmonPale: "#FDF0ED",
+  salmonFog:  "#FEF7F5",
+  cream:      "#FAFAF7",
+  white:      "#FFFFFF",
+  charcoal:   "#1C1C1A",
+  mid:        "#5A6B5C",
+  light:      "#DDEADD",
+};
 
-    const ebooks = [
-      { id:1, emoji:"🍱", title:"La Schischetta Perfetta",   sub:"30 ricette · Meal prep",   price:"€ 40",  tag:"Bestseller", tagColor:C.salmonDark, bg:`linear-gradient(135deg,#3A6140,#5E8A63)`, desc:"30 ricette bilanciate per chi porta il pranzo in ufficio. Veloci, buone fredde, sane.", accent:C.sageDark },
-      { id:2, emoji:"💪", title:"Nutrizione Sportiva",       sub:"Guida completa",            price:"€ 29",  bg:`linear-gradient(135deg,${C.salmonDark},${C.salmon})`, desc:"Come alimentarsi per migliorare le performance sportive. Basato su evidenze scientifiche.", accent:C.salmon },
-      { id:3, emoji:"🏷️", title:"Etichette Alimentari",      sub:"Guida pratica",             price:"€ 19",  bg:`linear-gradient(135deg,#5E8A63,${C.sage})`, desc:"Impara a leggere e interpretare le etichette dei prodotti alimentari.", accent:C.sageDark },
-      { id:4, emoji:"👶", title:"Svezzamento 0–12 mesi",     sub:"Per i genitori",            price:"€ 25",  bg:`linear-gradient(135deg,#C96A7A,#E89AAA)`, desc:"Guida completa allo svezzamento: quando iniziare, cosa dare, come procedere.", accent:"#C96A7A" },
-      { id:5, emoji:"🧒", title:"Alimentazione Bambini",     sub:"1–10 anni",                 price:"€ 25",  bg:`linear-gradient(135deg,#3A6140,#8AAF8E)`, desc:"Tutto ciò che un genitore deve sapere sull'alimentazione in età prescolare.", accent:C.sageDark },
-      { id:6, emoji:"🏃", title:"Alimentazione Adolescenti", sub:"11–17 anni",                price:"€ 25",  bg:`linear-gradient(135deg,${C.salmonDark},#D4826A)`, desc:"Come supportare la crescita degli adolescenti con un'alimentazione bilanciata.", accent:C.salmon },
-      { id:7, emoji:"🏢", title:"Mangiare Bene Fuori Casa",  sub:"Per i lavoratori",          price:"€ 19",  bg:`linear-gradient(135deg,#5E8A63,#B5CDB8)`, desc:"Strategie per chi non ha tempo di cucinare ma vuole mangiare sano.", accent:C.sageDark },
-      { id:8, emoji:"🥗", title:"15 Ricette Esclusive",      sub:"Omaggio gratuito",          price:"Gratis",tag:"Gratis", tagColor:C.sageDark, bg:`linear-gradient(135deg,${C.salmon},${C.salmonLight})`, desc:"Commenta RICETTARIO su Instagram e ricevi 15 ricette esclusive.", accent:C.salmon },
-    ];
+const ebooks = [
+  { id:1, emoji:"🍱", title:"La Schischetta Perfetta",   sub:"30 ricette · Meal prep",   price:"€ 40",  tag:"Bestseller", tagColor:C.salmonDark, bg:`linear-gradient(135deg,#3A6140,#5E8A63)`, desc:"30 ricette bilanciate per chi porta il pranzo in ufficio. Veloci, buone fredde, sane.", accent:C.sageDark },
+  { id:2, emoji:"💪", title:"Nutrizione Sportiva",       sub:"Guida completa",           price:"€ 29",  bg:`linear-gradient(135deg,${C.salmonDark},${C.salmon})`, desc:"Come alimentarsi per migliorare le performance sportive. Basato su evidenze scientifiche.", accent:C.salmon },
+  { id:3, emoji:"🏷️", title:"Etichette Alimentari",      sub:"Guida pratica",            price:"€ 19",  bg:`linear-gradient(135deg,#5E8A63,${C.sage})`, desc:"Impara a leggere e interpretare le etichette dei prodotti alimentari.", accent:C.sageDark },
+  { id:4, emoji:"👶", title:"Svezzamento 0–12 mesi",     sub:"Per i genitori",           price:"€ 25",  bg:`linear-gradient(135deg,#C96A7A,#E89AAA)`, desc:"Guida completa allo svezzamento: quando iniziare, cosa dare, come procedere.", accent:"#C96A7A" },
+  { id:5, emoji:"🧒", title:"Alimentazione Bambini",     sub:"1–10 anni",                price:"€ 25",  bg:`linear-gradient(135deg,#3A6140,#8AAF8E)`, desc:"Tutto ciò che un genitore deve sapere sull'alimentazione in età prescolare.", accent:C.sageDark },
+  { id:6, emoji:"🏃", title:"Alimentazione Adolescenti", sub:"11–17 anni",               price:"€ 25",  bg:`linear-gradient(135deg,${C.salmonDark},#D4826A)`, desc:"Come supportare la crescita degli adolescenti con un'alimentazione bilanciata.", accent:C.salmon },
+  { id:7, emoji:"🏢", title:"Mangiare Bene Fuori Casa",  sub:"Per i lavoratori",         price:"€ 19",  bg:`linear-gradient(135deg,#5E8A63,#B5CDB8)`, desc:"Strategie per chi non ha tempo di cucinare ma vuole mangiare sano.", accent:C.sageDark },
+  { id:8, emoji:"🥗", title:"15 Ricette Esclusive",      sub:"Omaggio gratuito",         price:"Gratis",tag:"Gratis", tagColor:C.sageDark, bg:`linear-gradient(135deg,${C.salmon},${C.salmonLight})`, desc:"Commenta RICETTARIO su Instagram e ricevi 15 ricette esclusive.", accent:C.salmon },
+];
 
-    const posts = [
-      { emoji:"🥗", cat:"Meal prep",             title:"Come organizzare il meal prep in 60 minuti",      excerpt:"Con il metodo giusto, bastano 60 minuti per avere i pranzi pronti per tutta la settimana.", date:"12 Mar 2026", read:"5 min", featured:true },
-      { emoji:"💪", cat:"Sport & Nutrizione",    title:"Proteine: quante ne servono davvero?",              excerpt:"La verità scientifica sui fabbisogni proteici, senza esagerazioni e senza miti.", date:"5 Mar 2026", read:"4 min" },
-      { emoji:"🏷️", cat:"Educazione alimentare", title:"Come leggere le etichette senza confondersi",      excerpt:"Tutto quello che c'è scritto in etichetta e come interpretarlo semplicemente.", date:"28 Feb 2026", read:"6 min" },
-    ];
+const posts = [
+  { emoji:"🥗", cat:"Meal prep",             title:"Come organizzare il meal prep in 60 minuti",      excerpt:"Con il metodo giusto, bastano 60 minuti per avere i pranzi pronti per tutta la settimana.", date:"12 Mar 2025", read:"5 min", featured:true },
+  { emoji:"💪", cat:"Sport & Nutrizione",    title:"Proteine: quante ne servono davvero?",             excerpt:"La verità scientifica sui fabbisogni proteici, senza esagerazioni e senza miti.", date:"5 Mar 2025", read:"4 min" },
+  { emoji:"🏷️", cat:"Educazione alimentare", title:"Come leggere le etichette senza confondersi",      excerpt:"Tutto quello che c'è scritto in etichetta e come interpretarlo semplicemente.", date:"28 Feb 2025", read:"6 min" },
+  { emoji:"👶", cat:"Età evolutiva",         title:"Quando iniziare lo svezzamento?",                  excerpt:"Cosa dicono davvero le evidenze scientifiche sull'introduzione dei solidi.", date:"20 Feb 2025", read:"7 min" },
+  { emoji:"🧘", cat:"Stile di vita",         title:"Neofobia alimentare: cosa fare (e cosa non fare)", excerpt:"Un comportamento normale che spaventa molti genitori. Ecco come gestirlo.", date:"10 Feb 2025", read:"5 min" },
+];
 
-    function useIsMobile() {
-      const [mob, setMob] = useState(window.innerWidth < 768);
-      useEffect(() => {
-        const fn = () => setMob(window.innerWidth < 768);
-        window.addEventListener("resize", fn);
-        return () => window.removeEventListener("resize", fn);
-      }, []);
-      return mob;
-    }
+function useIsMobile() {
+  const [mob, setMob] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const fn = () => setMob(window.innerWidth < 768);
+    window.addEventListener("resize", fn);
+    return () => window.removeEventListener("resize", fn);
+  }, []);
+  return mob;
+}
 
-    function Wave({ fromColor, toColor, flip }) {
-      return (
-        <div style={{ display:"block", lineHeight:0, overflow:"hidden", transform: flip ? "scaleY(-1)" : "none", background: fromColor }}>
-          <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style={{ display:"block", width:"100%" }}>
-            <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill={toColor} />
-          </svg>
+function Wave({ fromColor, toColor, flip }) {
+  return (
+    <div style={{ display:"block", lineHeight:0, overflow:"hidden", transform: flip ? "scaleY(-1)" : "none", background: fromColor }}>
+      <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style={{ display:"block", width:"100%" }}>
+        <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill={toColor} />
+      </svg>
+    </div>
+  );
+}
+
+function WaveDecor({ color, opacity=0.12 }) {
+  return (
+    <svg viewBox="0 0 600 60" xmlns="http://www.w3.org/2000/svg" style={{ position:"absolute", bottom:0, left:0, right:0, width:"100%", pointerEvents:"none" }}>
+      <path d="M0,40 C100,20 200,60 300,40 C400,20 500,60 600,40 L600,60 L0,60 Z" fill={color} fillOpacity={opacity} />
+      <path d="M0,50 C150,30 300,70 450,50 C520,40 570,55 600,50 L600,60 L0,60 Z" fill={color} fillOpacity={opacity * 0.6} />
+    </svg>
+  );
+}
+
+function WaveLine({ color, style={} }) {
+  return (
+    <svg viewBox="0 0 200 12" xmlns="http://www.w3.org/2000/svg" style={{ display:"block", ...style }}>
+      <path d="M0,6 C20,0 40,12 60,6 C80,0 100,12 120,6 C140,0 160,12 180,6 C190,2 196,4 200,6" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+function Tag({ text, light }) {
+  return (
+    <div style={{ display:"flex", alignItems:"center", gap:"0.7rem", marginBottom:"0.9rem" }}>
+      <WaveLine color={light ? "rgba(255,255,255,0.55)" : C.salmon} style={{ width:"40px" }} />
+      <span style={{ fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.16em", textTransform:"uppercase", color: light ? "rgba(255,255,255,0.7)" : C.salmon }}>
+        {text}
+      </span>
+    </div>
+  );
+}
+
+function Btn({ children, onClick, bg, color="#fff", full, small }) {
+  const [hov, setHov] = useState(false);
+  const bgColor = bg || C.sage;
+  return (
+    <button onClick={onClick}
+      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{
+        display:"inline-flex", alignItems:"center", justifyContent:"center", gap:"0.4rem",
+        padding: small ? "0.6rem 1.1rem" : "0.85rem 1.7rem",
+        fontSize: small ? "0.67rem" : "0.72rem", fontWeight:700,
+        letterSpacing:"0.09em", textTransform:"uppercase",
+        border:"none", cursor:"pointer", borderRadius:"100px",
+        background: hov ? bgColor + "dd" : bgColor, color,
+        width: full ? "100%" : undefined,
+        transition:"all 0.2s",
+        boxShadow: hov ? `0 6px 20px ${bgColor}55` : "none",
+      }}>
+      {children}
+    </button>
+  );
+}
+
+function Nav({ page, setPage }) {
+  const mob = useIsMobile();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { setOpen(false); }, [page]);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+  const go = (p) => { setPage(p); setOpen(false); window.scrollTo(0,0); };
+  const links = [["home","Home"],["chi-sono","Chi sono"],["ebook","eBook"],["blog","Blog"],["contatti","Contatti"]];
+
+  return (
+    <nav style={{
+      position:"sticky", top:0, zIndex:200,
+      background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.93)",
+      backdropFilter:"blur(16px)",
+      borderBottom:`1px solid ${scrolled ? C.light : "transparent"}`,
+      transition:"all 0.3s",
+    }}>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding: mob ? "0 1.2rem" : "0 2.5rem", height: mob ? "58px" : "64px" }}>
+        <div onClick={() => go("home")} style={{ fontFamily:"Georgia,serif", fontSize: mob ? "1rem" : "1.12rem", fontWeight:"bold", color:C.sageDeep, cursor:"pointer" }}>
+          Federica <span style={{ color:C.salmon, fontStyle:"italic" }}>Tardia</span>
         </div>
-      );
-    }
-
-    function WaveDecor({ color, opacity=0.12 }) {
-      return (
-        <svg viewBox="0 0 600 60" xmlns="http://www.w3.org/2000/svg" style={{ position:"absolute", bottom:0, left:0, right:0, width:"100%", pointerEvents:"none" }}>
-          <path d="M0,40 C100,20 200,60 300,40 C400,20 500,60 600,40 L600,60 L0,60 Z" fill={color} fillOpacity={opacity} />
-          <path d="M0,50 C150,30 300,70 450,50 C520,40 570,55 600,50 L600,60 L0,60 Z" fill={color} fillOpacity={opacity * 0.6} />
-        </svg>
-      );
-    }
-
-    function WaveLine({ color, style={} }) {
-      return (
-        <svg viewBox="0 0 200 12" xmlns="http://www.w3.org/2000/svg" style={{ display:"block", ...style }}>
-          <path d="M0,6 C20,0 40,12 60,6 C80,0 100,12 120,6 C140,0 160,12 180,6 C190,2 196,4 200,6" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"/>
-        </svg>
-      );
-    }
-
-    function Tag({ text, light }) {
-      return (
-        <div style={{ display:"flex", alignItems:"center", gap:"0.7rem", marginBottom:"0.9rem" }}>
-          <WaveLine color={light ? "rgba(255,255,255,0.55)" : C.salmon} style={{ width:"40px" }} />
-          <span style={{ fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.16em", textTransform:"uppercase", color: light ? "rgba(255,255,255,0.7)" : C.salmon }}>
-            {text}
-          </span>
+        {!mob && (
+          <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
+            {links.map(([k,l]) => (
+              <span key={k} onClick={() => go(k)} style={{
+                fontSize:"0.71rem", fontWeight:600, letterSpacing:"0.09em", textTransform:"uppercase",
+                color: page===k ? C.sageDeep : C.mid, cursor:"pointer",
+                borderBottom: page===k ? `2px solid ${C.salmon}` : "2px solid transparent",
+                paddingBottom:"2px", transition:"all 0.2s",
+              }}>{l}</span>
+            ))}
+            <Btn onClick={() => go("contatti")} bg={C.salmon} small>Scrivimi</Btn>
+          </div>
+        )}
+        {mob && (
+          <button onClick={() => setOpen(o => !o)} style={{ background:"none", border:"none", cursor:"pointer", padding:"6px", display:"flex", flexDirection:"column", gap:"5px" }}>
+            {[0,1,2].map(i => (
+              <div key={i} style={{ width:"22px", height:"2px", background:C.sageDeep, transform: open && i===0 ? "rotate(45deg) translate(5px,5px)" : open && i===1 ? "scaleX(0)" : open && i===2 ? "rotate(-45deg) translate(5px,-5px)" : "none", transition:"all 0.25s" }} />
+            ))}
+          </button>
+        )}
+      </div>
+      {mob && open && (
+        <div style={{ background:C.sage, borderTop:"1px solid rgba(255,255,255,0.18)" }}>
+          {links.map(([k,l]) => (
+            <div key={k} onClick={() => go(k)} style={{ padding:"1rem 1.5rem", fontSize:"0.88rem", fontWeight:600, color: page===k ? C.white : "rgba(255,255,255,0.82)", borderBottom:"1px solid rgba(255,255,255,0.1)", cursor:"pointer", background: page===k ? "rgba(255,255,255,0.1)" : "none" }}>{l}</div>
+          ))}
+          <div style={{ padding:"1rem 1.5rem" }}><Btn onClick={() => go("contatti")} bg={C.salmon} full>Scrivimi</Btn></div>
         </div>
-      );
-    }
+      )}
+    </nav>
+  );
+}
 
-    function Btn({ children, onClick, bg, color="#fff", full, small }) {
-      const [hov, setHov] = useState(false);
-      const bgColor = bg || C.sage;
-      return (
-        <button onClick={onClick}
-          onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-          style={{
-            display:"inline-flex", alignItems:"center", justifyContent:"center", gap:"0.4rem",
-            padding: small ? "0.6rem 1.1rem" : "0.85rem 1.7rem",
-            fontSize: small ? "0.67rem" : "0.72rem", fontWeight:700,
-            letterSpacing:"0.09em", textTransform:"uppercase",
-            border:"none", cursor:"pointer", borderRadius:"100px",
-            background: hov ? bgColor + "dd" : bgColor, color,
-            width: full ? "100%" : undefined,
-            transition:"all 0.2s",
-            boxShadow: hov ? `0 6px 20px ${bgColor}55` : "none",
-          }}>
-          {children}
-        </button>
-      );
-    }
-
-    function Nav({ page, setPage }) {
-      const mob = useIsMobile();
-      const [open, setOpen] = useState(false);
-      const [scrolled, setScrolled] = useState(false);
-      useEffect(() => { setOpen(false); }, [page]);
-      useEffect(() => {
-        const fn = () => setScrolled(window.scrollY > 10);
-        window.addEventListener("scroll", fn);
-        return () => window.removeEventListener("scroll", fn);
-      }, []);
-      const go = (p) => { setPage(p); setOpen(false); window.scrollTo(0,0); };
-      const links = [["home","Home"],["chi-sono","Chi sono"],["ebook","eBook"],["blog","Blog"]];
-
-      return (
-        <nav style={{
-          position:"sticky", top:0, zIndex:200,
-          background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.93)",
-          backdropFilter:"blur(16px)",
-          borderBottom:`1px solid ${scrolled ? C.light : "transparent"}`,
-          transition:"all 0.3s",
-        }}>
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding: mob ? "0 1.2rem" : "0 2.5rem", height: mob ? "58px" : "64px" }}>
-            <div onClick={() => go("home")} style={{ fontFamily:"Georgia,serif", fontSize: mob ? "1rem" : "1.12rem", fontWeight:"bold", color:C.sageDeep, cursor:"pointer" }}>
-              Federica <span style={{ color:C.salmon, fontStyle:"italic" }}>Tardia</span>
-            </div>
-            {!mob && (
-              <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
-                {links.map(([k,l]) => (
-                  <span key={k} onClick={() => go(k)} style={{
-                    fontSize:"0.71rem", fontWeight:600, letterSpacing:"0.09em", textTransform:"uppercase",
-                    color: page===k ? C.sageDeep : C.mid, cursor:"pointer",
-                    borderBottom: page===k ? `2px solid ${C.salmon}` : "2px solid transparent",
-                    paddingBottom:"2px", transition:"all 0.2s",
-                  }}>{l}</span>
-                ))}
-                <Btn onClick={() => go("home")} bg={C.salmon} small>Scrivimi</Btn>
-              </div>
-            )}
-            {mob && (
-              <button onClick={() => setOpen(o => !o)} style={{ background:"none", border:"none", cursor:"pointer", padding:"6px", display:"flex", flexDirection:"column", gap:"5px" }}>
-                {[0,1,2].map(i => (
-                  <div key={i} style={{ width:"22px", height:"2px", background:C.sageDeep, transform: open && i===0 ? "rotate(45deg) translate(5px,5px)" : open && i===1 ? "scaleX(0)" : open && i===2 ? "rotate(-45deg) translate(5px,-5px)" : "none", transition:"all 0.25s" }} />
-                ))}
-              </button>
-            )}
+function Footer({ setPage }) {
+  const mob = useIsMobile();
+  const go = (p) => { setPage(p); window.scrollTo(0,0); };
+  return (
+    <>
+      <Wave fromColor={C.sageFog} toColor={C.sage} />
+      <div style={{ background:C.sage, padding: mob ? "2rem 1.5rem" : "2.5rem 3rem" }}>
+        <div style={{ display:"flex", flexDirection: mob ? "column" : "row", gap:"1.5rem", justifyContent:"space-between", alignItems: mob ? "flex-start" : "center" }}>
+          <div style={{ fontFamily:"Georgia,serif", fontSize:"1rem", color:C.white, fontWeight:"bold" }}>
+            Federica <span style={{ color:C.salmonPale, fontStyle:"italic" }}>Tardia</span>
+            <div style={{ fontSize:"0.7rem", fontWeight:300, color:"rgba(255,255,255,0.5)", marginTop:"0.2rem" }}>Biologa Nutrizionista</div>
           </div>
-          {mob && open && (
-            <div style={{ background:C.sage, borderTop:"1px solid rgba(255,255,255,0.18)" }}>
-              {links.map(([k,l]) => (
-                <div key={k} onClick={() => go(k)} style={{ padding:"1rem 1.5rem", fontSize:"0.88rem", fontWeight:600, color: page===k ? C.white : "rgba(255,255,255,0.82)", borderBottom:"1px solid rgba(255,255,255,0.1)", cursor:"pointer" }}>{l}</div>
-              ))}
-            </div>
-          )}
-        </nav>
-      );
-    }
-
-    function Footer({ setPage }) {
-      const mob = useIsMobile();
-      return (
-        <>
-          <Wave fromColor={C.sageFog} toColor={C.sage} />
-          <div style={{ background:C.sage, padding: mob ? "2rem 1.5rem" : "2.5rem 3rem" }}>
-            <div style={{ display:"flex", flexDirection: mob ? "column" : "row", gap:"1.5rem", justifyContent:"space-between", alignItems: mob ? "flex-start" : "center" }}>
-              <div style={{ fontFamily:"Georgia,serif", fontSize:"1rem", color:C.white, fontWeight:"bold" }}>
-                Federica <span style={{ color:C.salmonPale, fontStyle:"italic" }}>Tardia</span>
-                <div style={{ fontSize:"0.7rem", fontWeight:300, color:"rgba(255,255,255,0.5)", marginTop:"0.2rem" }}>Biologa Nutrizionista</div>
-              </div>
-              <div style={{ fontSize:"0.67rem", color:"rgba(255,255,255,0.35)" }}>© 2026 Federica Tardia</div>
-            </div>
-          </div>
-        </>
-      );
-    }
-
-    function HomePage({ setPage }) {
-      const mob = useIsMobile();
-      const go = (p) => { setPage(p); window.scrollTo(0,0); };
-
-      return (
-        <div className="fade-in">
-          <div style={{ background:C.sage, padding: mob ? "3.5rem 1.5rem 5rem" : "5rem 3rem 6rem", position:"relative", overflow:"hidden" }}>
-            <WaveDecor color={C.white} opacity={0.1} />
-            <div style={{ display:"grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? "2.5rem" : "5rem", alignItems:"center", maxWidth:"1100px", margin:"0 auto", position:"relative", zIndex:2 }}>
-              <div>
-                <Tag text="Biologa Nutrizionista" light />
-                <h1 style={{ fontFamily:"Georgia,serif", fontSize: mob ? "2.4rem" : "clamp(2.8rem,4vw,4rem)", fontWeight:"normal", lineHeight:1.08, color:C.white, margin:"0 0 1.4rem" }}>
-                  Nutrizione<br/><em style={{ color:C.salmonPale }}>su misura</em><br/>per la tua vita.
-                </h1>
-                <p style={{ fontSize: mob ? "0.92rem" : "0.97rem", lineHeight:1.82, color:"rgba(255,255,255,0.78)", maxWidth:"420px", marginBottom:"2rem" }}>
-                  Non diete rigide. Un approccio concreto, basato sulla scienza, che si adatta davvero al tuo stile di vita.
-                </p>
-                <div style={{ display:"flex", gap:"0.8rem", flexWrap:"wrap" }}>
-                  <Btn bg={C.salmon} onClick={() => go("ebook")}>Scopri gli eBook →</Btn>
-                  <Btn bg="rgba(255,255,255,0.18)" onClick={() => go("chi-sono")}>Chi sono</Btn>
-                </div>
-              </div>
-            </div>
-          </div>
-          <Wave fromColor={C.sage} toColor={C.white} />
-          
-          <div style={{ padding: "4rem 1.5rem", textAlign:"center" }}>
-            <Tag text="Servizi" />
-            <h2 style={{ fontFamily:"Georgia,serif", fontSize: "2rem" }}>Le mie guide pratiche</h2>
-            <div style={{ display:"grid", gridTemplateColumns: mob ? "1fr" : "repeat(4,1fr)", gap:"1rem", marginTop:"2rem" }}>
-               {ebooks.slice(0,4).map(e => (
-                 <div key={e.id} style={{ background:C.white, padding:"1.5rem", borderRadius:"16px", boxShadow:"0 4px 12px rgba(0,0,0,0.05)", borderTop:`4px solid ${e.accent}` }}>
-                    <span style={{ fontSize:"2rem" }}>{e.emoji}</span>
-                    <h4 style={{ margin:"0.5rem 0" }}>{e.title}</h4>
-                    <p style={{ fontSize:"0.75rem", color:C.mid }}>{e.sub}</p>
-                 </div>
-               ))}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    function ChiSonoPage() {
-      return (
-        <div className="fade-in" style={{ padding: "4rem 1.5rem", maxWidth:"800px", margin:"0 auto" }}>
-          <Tag text="La mia storia" />
-          <h1 style={{ fontFamily:"Georgia,serif", marginBottom:"2rem" }}>Dott.ssa Federica Tardia</h1>
-          <p style={{ lineHeight:"1.8", color:C.mid }}>Sono una Biologa Nutrizionista specializzata in educazione alimentare. Credo che il cibo debba essere un alleato, non un nemico.</p>
-        </div>
-      );
-    }
-
-    function EbookPage() {
-      const mob = useIsMobile();
-      return (
-        <div className="fade-in">
-          <div style={{ background:C.sage, padding: mob ? "3rem 1.5rem" : "4.5rem 3rem", color:C.white }}>
-            <Tag text="eBook & Risorse" light />
-            <h1 style={{ fontFamily:"Georgia,serif", fontSize: "2.5rem" }}>Strumenti pratici per mangiare meglio</h1>
-          </div>
-          <Wave fromColor={C.sage} toColor={C.white} />
-          <div style={{ padding: mob ? "2.5rem 1.5rem" : "3.5rem 3rem", display:"grid", gridTemplateColumns: mob ? "1fr" : "repeat(3,1fr)", gap:"1.5rem" }}>
-            {ebooks.map(e => (
-              <div key={e.id} style={{ border:`1px solid ${C.light}`, borderRadius:"16px", overflow:"hidden", transition:"0.3s" }}>
-                <div style={{ background: e.bg, padding:"2.5rem", textAlign:"center", fontSize:"3rem" }}>{e.emoji}</div>
-                <div style={{ padding:"1.5rem" }}>
-                  <h3 style={{ marginBottom:"0.5rem" }}>{e.title}</h3>
-                  <p style={{ fontSize:"0.85rem", color:C.mid, marginBottom:"1rem" }}>{e.desc}</p>
-                  <div style={{ fontWeight:"bold", color:C.sageDeep, fontSize:"1.2rem" }}>{e.price}</div>
-                </div>
-              </div>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:"1.2rem" }}>
+            {[["home","Home"],["chi-sono","Chi sono"],["ebook","eBook"],["blog","Blog"],["contatti","Contatti"]].map(([k,l]) => (
+              <span key={k} onClick={() => go(k)} style={{ fontSize:"0.71rem", color:"rgba(255,255,255,0.55)", cursor:"pointer" }}>{l}</span>
             ))}
           </div>
+          <div style={{ fontSize:"0.67rem", color:"rgba(255,255,255,0.35)" }}>© 2025 Federica Tardia</div>
         </div>
-      );
-    }
+      </div>
+    </>
+  );
+}
 
-    function App() {
-      const [page, setPage] = useState('home');
-      return (
+function HomePage({ setPage }) {
+  const mob = useIsMobile();
+  const go = (p) => { setPage(p); window.scrollTo(0,0); };
+
+  return (
+    <div>
+      <div style={{ background:C.sage, padding: mob ? "3.5rem 1.5rem 5rem" : "5rem 3rem 6rem", position:"relative", overflow:"hidden" }}>
+        <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"340px", height:"340px", borderRadius:"50%", border:"1px solid rgba(255,255,255,0.14)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", top:"-20px", right:"60px", width:"180px", height:"180px", borderRadius:"50%", border:"1px solid rgba(255,255,255,0.08)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", bottom:"40px", left:"-40px", width:"220px", height:"220px", borderRadius:"50%", border:"1px solid rgba(232,131,106,0.15)", pointerEvents:"none" }} />
+        <WaveDecor color={C.white} opacity={0.1} />
+        <div style={{ display:"grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? "2.5rem" : "5rem", alignItems:"center", maxWidth:"1100px", margin:"0 auto", position:"relative", zIndex:2 }}>
+          <div>
+            <Tag text="Biologa Nutrizionista" light />
+            <h1 style={{ fontFamily:"Georgia,serif", fontSize: mob ? "2.4rem" : "clamp(2.8rem,4vw,4rem)", fontWeight:"normal", lineHeight:1.08, color:C.white, margin:"0 0 1.4rem" }}>
+              Nutrizione<br/><em style={{ color:C.salmonPale }}>su misura</em><br/>per la tua vita.
+            </h1>
+            <WaveLine color="rgba(255,255,255,0.25)" style={{ width:"120px", margin:"0 0 1.4rem" }} />
+            <p style={{ fontSize: mob ? "0.92rem" : "0.97rem", lineHeight:1.82, color:"rgba(255,255,255,0.78)", maxWidth:"420px", marginBottom:"2rem" }}>
+              Non diete rigide. Un approccio concreto, basato sulla scienza, che si adatta davvero al tuo stile di vita.
+            </p>
+            <div style={{ display:"flex", gap:"0.8rem", flexWrap:"wrap" }}>
+              <Btn bg={C.salmon} onClick={() => go("ebook")}>Scopri gli eBook →</Btn>
+              <Btn bg="rgba(255,255,255,0.18)" onClick={() => go("chi-sono")}>Chi sono</Btn>
+              <Btn bg="rgba(255,255,255,0.18)" onClick={() => go("blog")}>Blog</Btn>
+            </div>
+            <div style={{ display:"flex", gap: mob ? "2rem" : "3rem", marginTop:"2.5rem", paddingTop:"2rem", borderTop:"1px solid rgba(255,255,255,0.16)" }}>
+              {[["7+","eBook"],["30","Ricette"],["500+","Follower"]].map(([n,l]) => (
+                <div key={l}>
+                  <div style={{ fontFamily:"Georgia,serif", fontSize: mob ? "1.9rem" : "2.2rem", color:C.white, lineHeight:1 }}>{n}</div>
+                  <div style={{ fontSize:"0.63rem", color:"rgba(255,255,255,0.48)", marginTop:"0.28rem" }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {!mob && (
+            <div style={{ display:"flex", flexDirection:"column", gap:"0.9rem" }}>
+              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.9rem" }}>
+                {ebooks.slice(0,4).map(e => (
+                  <div key={e.id} onClick={() => go("ebook")} style={{ background:"rgba(255,255,255,0.16)", borderRadius:"16px", padding:"1.3rem", cursor:"pointer", transition:"all 0.2s", border:"1px solid rgba(255,255,255,0.2)" }}>
+                    <span style={{ fontSize:"1.6rem", display:"block", marginBottom:"0.5rem" }}>{e.emoji}</span>
+                    <div style={{ fontFamily:"Georgia,serif", fontSize:"0.88rem", fontWeight:"bold", color:C.white, lineHeight:1.3 }}>{e.title}</div>
+                    <div style={{ fontSize:"0.64rem", color:"rgba(255,255,255,0.5)" }}>{e.sub}</div>
+                    <div style={{ fontFamily:"Georgia,serif", fontSize:"1.1rem", fontWeight:"bold", color:C.salmonPale }}>{e.price}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <Wave fromColor={C.sage} toColor={C.salmonFog} />
+      <div style={{ background:C.salmonFog, padding: mob ? "2.5rem 1.5rem" : "4rem 3rem 5rem" }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"1.5rem" }}>
+          <div>
+            <Tag text="eBook" />
+            <h2 style={{ fontFamily:"Georgia,serif", fontSize: mob ? "1.6rem" : "2rem" }}>Le mie <em style={{ color:C.sageDeep }}>guide pratiche</em></h2>
+          </div>
+          <span onClick={() => go("ebook")} style={{ fontSize:"0.72rem", fontWeight:700, color:C.salmon, cursor:"pointer" }}>Vedi tutti →</span>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4,1fr)", gap:"1rem" }}>
+          {ebooks.slice(0,4).map(e => (
+            <div key={e.id} onClick={() => go("ebook")} style={{ background:C.white, borderRadius:"16px", padding:"1.2rem", borderTop:`3px solid ${e.accent}`, cursor:"pointer", boxShadow:"0 2px 10px rgba(0,0,0,0.04)" }}>
+              <span style={{ fontSize:"1.6rem" }}>{e.emoji}</span>
+              <div style={{ fontFamily:"Georgia,serif", fontWeight:"bold", marginTop:"0.6rem" }}>{e.title}</div>
+              <div style={{ fontSize:"0.64rem", color:C.mid }}>{e.sub}</div>
+              <div style={{ fontFamily:"Georgia,serif", fontSize:"1.15rem", fontWeight:"bold", color:C.sageDeep, marginTop:"0.5rem" }}>{e.price}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Wave fromColor={C.salmonFog} toColor={C.white} />
+      <div style={{ background:C.white, padding: mob ? "3rem 1.5rem 4rem" : "5rem 3rem 6rem", display:"grid", gridTemplateColumns: mob ? "1fr" : "1fr 2fr", gap:"4.5rem", alignItems:"center" }}>
+        {!mob && (
+          <div style={{ background:`linear-gradient(145deg,${C.sagePale},${C.sageLight})`, borderRadius:"24px", minHeight:"300px", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", overflow:"hidden" }}>
+             <span style={{ fontFamily:"Georgia,serif", fontSize:"8rem", fontWeight:"bold", color:"rgba(138,175,142,0.15)", position:"absolute" }}>FT</span>
+             <span style={{ fontSize:"0.78rem", color:C.sageDark }}>📸 La tua foto</span>
+          </div>
+        )}
         <div>
-          <Nav page={page} setPage={setPage} />
-          <main style={{ minHeight:"70vh" }}>
-            {page === 'home' && <HomePage setPage={setPage} />}
-            {page === 'chi-sono' && <ChiSonoPage />}
-            {page === 'ebook' && <EbookPage />}
-            {page === 'blog' && <div className="fade-in" style={{padding:"5rem", textAlign:"center"}}><h2>Blog in arrivo...</h2></div>}
-          </main>
-          <Footer />
+          <Tag text="Chi sono" />
+          <h2 style={{ fontFamily:"Georgia,serif", fontSize: "2.4rem", marginBottom:"0.8rem" }}>Ciao, sono<br/><em style={{ color:C.sageDeep }}>Federica Tardia</em></h2>
+          <p style={{ fontSize:"0.92rem", lineHeight:1.85, color:C.mid, marginBottom:"1.8rem" }}>Sono una Biologa Nutrizionista e mi occupo di educazione alimentare con un approccio concreto e scientifico.</p>
+          <Btn onClick={() => go("chi-sono")} bg={C.sageDark}>Scopri di più →</Btn>
         </div>
-      );
-    }
+      </div>
+      <Wave fromColor={C.white} toColor={C.sageFog} />
+      <div style={{ background:C.sageFog, padding: "5rem 3rem" }}>
+         <Tag text="Dal blog" />
+         <h2 style={{ fontFamily:"Georgia,serif", fontSize: "2.2rem", marginBottom:"1.8rem" }}>Articoli & <em style={{ color:C.sageDeep }}>consigli</em></h2>
+         <div style={{ display:"grid", gridTemplateColumns: mob ? "1fr" : "2fr 1fr 1fr", gap:"1rem" }}>
+           {posts.slice(0, 3).map((p,i) => (
+             <div key={i} style={{ background: i===0 ? C.sage : C.white, borderRadius:"16px", padding:"1.5rem", color: i===0 ? C.white : C.charcoal, border:`1px solid ${C.light}` }}>
+               <div style={{ fontSize:"2rem" }}>{p.emoji}</div>
+               <div style={{ fontSize:"0.6rem", fontWeight:700, textTransform:"uppercase", marginTop:"0.8rem" }}>{p.cat}</div>
+               <div style={{ fontFamily:"Georgia,serif", fontSize:"1.2rem", fontWeight:"bold", margin:"0.5rem 0" }}>{p.title}</div>
+               <div style={{ fontSize:"0.65rem", opacity:0.7 }}>{p.date} · {p.read}</div>
+             </div>
+           ))}
+         </div>
+      </div>
+    </div>
+  );
+}
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+function ChiSonoPage() {
+  const mob = useIsMobile();
+  return (
+    <div>
+      <div style={{ background:C.sage, padding: "4.5rem 3rem", position:"relative", overflow:"hidden" }}>
+        <WaveDecor color={C.white} opacity={0.08} />
+        <Tag text="Chi sono" light />
+        <h1 style={{ fontFamily:"Georgia,serif", fontSize: "3rem", color:C.white }}>Dott.ssa <em style={{ color:C.salmonPale }}>Federica Tardia</em></h1>
+      </div>
+      <Wave fromColor={C.sage} toColor={C.white} />
+      <div style={{ padding: "4rem 3rem", maxWidth:"1000px", margin:"0 auto" }}>
+         <blockquote style={{ fontFamily:"Georgia,serif", fontSize: "1.35rem", fontStyle:"italic", color:C.salmon, borderLeft:`3px solid ${C.sageLight}`, paddingLeft:"1.3rem", marginBottom:"2rem" }}>
+           "Il cibo non è il nemico. È nutrimento, piacere e cultura."
+         </blockquote>
+         <p style={{ lineHeight:1.8, color:C.mid }}>Mi occupo di nutrizione personalizzata basata su evidenze scientifiche. Credo in un approccio che si adatta a te, non il contrario.</p>
+      </div>
+    </div>
+  );
+}
+
+function EbookPage() {
+  const mob = useIsMobile();
+  return (
+    <div>
+      <div style={{ background:C.sage, padding: "4.5rem 3rem", position:"relative" }}>
+        <WaveDecor color={C.white} opacity={0.08} />
+        <Tag text="eBook & Risorse" light />
+        <h1 style={{ fontFamily:"Georgia,serif", fontSize: "2.5rem", color:C.white }}>Strumenti pratici per<br/><em style={{ color:C.salmonPale }}>mangiare meglio</em></h1>
+      </div>
+      <Wave fromColor={C.sage} toColor={C.white} />
+      <div style={{ padding: "3.5rem 3rem", display:"grid", gridTemplateColumns: mob ? "1fr" : "repeat(3,1fr)", gap:"1.3rem" }}>
+        {ebooks.map(e => (
+          <div key={e.id} style={{ border:`1px solid ${C.light}`, borderRadius:"16px", overflow:"hidden", transition:"0.25s" }}>
+            <div style={{ background:e.bg, padding:"2rem", textAlign:"center" }}>
+              <span style={{ fontSize:"2.2rem" }}>{e.emoji}</span>
+              <div style={{ color:C.white, fontWeight:"bold", marginTop:"0.5rem" }}>{e.title}</div>
+            </div>
+            <div style={{ padding:"1.3rem" }}>
+              <div style={{ fontSize:"0.8rem", color:C.mid, marginBottom:"1rem" }}>{e.desc}</div>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:`1px solid ${C.light}`, paddingTop:"0.9rem" }}>
+                <div style={{ fontWeight:"bold", fontSize:"1.2rem", color:C.sageDeep }}>{e.price}</div>
+                <Btn bg={C.salmon} small>Acquista →</Btn>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BlogPage() {
+  const mob = useIsMobile();
+  return (
+    <div>
+      <div style={{ background:C.sage, padding: "4.5rem 3rem" }}>
+        <Tag text="Blog" light />
+        <h1 style={{ fontFamily:"Georgia,serif", fontSize: "2.5rem", color:C.white }}>Nutrizione spiegata <em style={{ color:C.salmonPale }}>semplicemente</em></h1>
+      </div>
+      <Wave fromColor={C.sage} toColor={C.white} />
+      <div style={{ padding: "3rem", display:"grid", gridTemplateColumns: mob ? "1fr" : "repeat(3,1fr)", gap:"1.5rem" }}>
+        {posts.map((p, i) => (
+          <div key={i} style={{ border:`1px solid ${C.light}`, borderRadius:"16px", padding:"1.5rem" }}>
+            <div style={{ fontSize:"2rem" }}>{p.emoji}</div>
+            <h3 style={{ fontFamily:"Georgia,serif", margin:"0.5rem 0" }}>{p.title}</h3>
+            <p style={{ fontSize:"0.85rem", color:C.mid }}>{p.excerpt}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ContattiPage() {
+  const [sent, setSent] = useState(false);
+  return (
+    <div style={{ padding: "5rem 3rem", textAlign:"center" }}>
+      <Tag text="Contatti" />
+      <h1 style={{ fontFamily:"Georgia,serif", fontSize:"2.5rem" }}>Parliamo di <em style={{ color:C.salmon }}>nutrizione</em></h1>
+      <div style={{ maxWidth:"500px", margin:"2rem auto", background:C.sageFog, padding:"2rem", borderRadius:"20px" }}>
+        {sent ? <h3>Messaggio inviato!</h3> : (
+          <div style={{ display:"flex", flexDirection:"column", gap:"1rem" }}>
+            <input placeholder="Nome" style={{ padding:"0.8rem", borderRadius:"8px", border:`1px solid ${C.light}` }} />
+            <input placeholder="Email" style={{ padding:"0.8rem", borderRadius:"8px", border:`1px solid ${C.light}` }} />
+            <textarea placeholder="Messaggio" rows={4} style={{ padding:"0.8rem", borderRadius:"8px", border:`1px solid ${C.light}` }} />
+            <Btn onClick={() => setSent(true)} bg={C.salmon}>Invia</Btn>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [page, setPage] = useState("home");
+  useEffect(() => { window.scrollTo(0,0); }, [page]);
+  const pages = {
+    home:       <HomePage setPage={setPage} />,
+    "chi-sono": <ChiSonoPage />,
+    ebook:      <EbookPage />,
+    blog:       <BlogPage />,
+    contatti:   <ContattiPage />,
+  };
+  return (
+    <div style={{ minHeight:"100vh", display:"flex", flexDirection:"column", background:C.cream }}>
+      <Nav page={page} setPage={setPage} />
+      <main style={{ flex:1 }}>{pages[page] || pages.home}</main>
+      <Footer setPage={setPage} />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
   </script>
 </body>
 </html>
