@@ -167,7 +167,7 @@ function Nav({page,go}) {
       </div>
       {mob && open && (
         <div style={{background:S.sage}}>
-          {links.map(([k,l]) => (
+          {[...links,["contatti","Contattami"]].map(([k,l]) => (
             <div key={k} onClick={()=>{go(k);setOpen(false);}} style={{padding:"1rem 1.5rem",fontSize:"0.88rem",fontWeight:600,color:page===k?"#fff":"rgba(255,255,255,0.85)",borderBottom:"1px solid rgba(255,255,255,0.1)",cursor:"pointer"}}>{l}</div>
           ))}
         </div>
