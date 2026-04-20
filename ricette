@@ -1,0 +1,134 @@
+[
+  {
+    "id": 2,
+    "emoji": "🍝",
+    "cat": "Pranzo",
+    "title": "Pasta Cremosa ai Fagioli con Peperoni e Granella di Mandorla",
+    "sub": "Un piatto unico completo, cremoso e sorprendentemente semplice",
+    "time": "25 min",
+    "kcal": "~630 kcal",
+    "diff": "★",
+    "date": "16 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "160g di pasta (per 2 persone)",
+      "250g di fagioli cotti (un barattolo scolato)",
+      "250g di peperoni misti",
+      "1 cipolla",
+      "30g di Parmigiano Reggiano",
+      "15g di granella di mandorle",
+      "Curry, paprica, sale e pepe q.b.",
+      "Olio EVO q.b."
+    ],
+    "preparazione": [
+      "Taglia i peperoni a dadini, elimina semi e parte bianca interna.",
+      "Fai stufare cipolla e peperoni in padella con olio EVO a fuoco medio per 10-12 minuti.",
+      "Aggiungi i fagioli scolati. Frulla metà dose con un mestolo di acqua di cottura della pasta — crea una crema densa e vellutata.",
+      "Unisci la crema di fagioli ai peperoni, aggiusta con curry, paprica, sale e pepe.",
+      "Scola la pasta al dente e manteca in padella con il condimento per 1-2 minuti.",
+      "Servi con Parmigiano Reggiano e granella di mandorle sopra."
+    ],
+    "perche": "I fagioli sono una fonte eccellente di proteine vegetali e fibre. Abbinati alla pasta completano il profilo aminoacidico. Il curry ha proprietà antinfiammatorie grazie alla curcumina.",
+    "consiglio": "Il trucco per digerire meglio i fagioli: frullali con acqua di cottura della pasta — la cremosità aiuta la digestione e riduce i fastidi intestinali. Elimina sempre semi e parte bianca dei peperoni.",
+    "macro": { "kcal": 630, "proteine": 24, "carboidrati": 88, "grassi": 19, "fibre": 13 }
+  },
+  {
+    "id": 3,
+    "emoji": "🥣",
+    "cat": "Pranzo",
+    "title": "Gnocchi Cremosi ai Piselli con Semi Tostati",
+    "sub": "Un primo piatto veloce, cremoso e ricco di proteine vegetali",
+    "time": "20 min",
+    "kcal": "~585 kcal",
+    "diff": "★",
+    "date": "23 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "500g di gnocchi di patate",
+      "250g di piselli cotti (barattolo scolato)",
+      "½ cipolla",
+      "30g di Parmigiano Reggiano grattugiato",
+      "15g di mix di semi (girasole, zucca, sesamo)",
+      "15g di olio EVO",
+      "Curry, sale e pepe q.b."
+    ],
+    "preparazione": [
+      "Metti a bollire l'acqua per gli gnocchi con abbondante sale.",
+      "In una padella fai brasare la cipolla tritata finemente con l'olio EVO a fuoco basso per 8-10 minuti, mescolando spesso, fino a quando diventa morbida e leggermente dorata.",
+      "Aggiungi i piselli scolati e il Parmigiano grattugiato. Insaporisci con curry, sale e pepe e mescola bene.",
+      "Frulla il composto con un mestolo di acqua di cottura degli gnocchi — calda — fino a ottenere una crema liscia e vellutata.",
+      "Cuoci gli gnocchi: sono pronti quando vengono a galla (2-3 minuti). Scolali tenendo da parte un po' di acqua di cottura.",
+      "Versa la crema nella padella, aggiungi gli gnocchi e fai insaporire a fuoco medio per 1-2 minuti. Se troppo densa, allungala con poca acqua di cottura.",
+      "Impiatta e finisci con il mix di semi tostati a secco in padella per 2 minuti — danno croccantezza e profumo."
+    ],
+    "perche": "I piselli sono ricchi di proteine vegetali e fibre solubili. Abbinati agli gnocchi formano un pasto completo ed equilibrato. Il curry con curcumina ha proprietà antinfiammatorie naturali.",
+    "consiglio": "Tosta i semi a secco in padella per 2 minuti prima di servire: il calore esalta gli oli essenziali e li rende molto più profumati. Puoi usare qualsiasi mix — girasole, zucca, lino, sesamo.",
+    "macro": { "kcal": 585, "proteine": 22, "carboidrati": 85, "grassi": 17, "fibre": null }
+  },
+  {
+    "id": 4,
+    "emoji": "☕",
+    "cat": "Colazione",
+    "title": "Mug Cake Proteico al Cioccolato con Frutta Fresca",
+    "sub": "La colazione che smaltisce gli avanzi di Pasqua in 3 minuti",
+    "time": "3 min",
+    "kcal": "~280 kcal",
+    "diff": "★",
+    "date": "16 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "30g di farina di riso",
+      "25g di proteine whey al cioccolato",
+      "70ml di latte (o bevanda vegetale)",
+      "10g di cioccolato dell'uovo di Pasqua",
+      "½ cucchiaino di lievito per dolci",
+      "Frutta fresca a piacere come topping"
+    ],
+    "preparazione": [
+      "In una tazza grande (almeno 300ml) mescola farina di riso, proteine whey e lievito.",
+      "Aggiungi il latte e mescola bene fino a ottenere un composto liscio senza grumi.",
+      "Inserisci il cioccolato a pezzetti nell'impasto — affonderebbe durante la cottura.",
+      "Cuoci in microonde alla massima potenza per 90 secondi esatti. Controlla: deve essere asciutto in superficie ma ancora morbido dentro.",
+      "Lascia riposare 1 minuto nella tazza — continua a cuocere con il calore residuo.",
+      "Aggiungi frutta fresca a piacere come topping: fragole, mirtilli, lamponi, kiwi."
+    ],
+    "perche": "Le whey protein completano il profilo aminoacidico della farina di riso, rendendo questa colazione ricca di proteine. Il cioccolato fondente apporta flavonoidi antiossidanti.",
+    "consiglio": "90 secondi esatti — non di più o diventa gommoso. Se il tuo microonde è potente, prova 70-75 secondi la prima volta. La farina di riso lo rende naturalmente senza glutine.",
+    "macro": { "kcal": 280, "proteine": 22, "carboidrati": 28, "grassi": 6, "fibre": 2 }
+  },
+  {
+    "id": 5,
+    "emoji": "🎂",
+    "cat": "Dolci",
+    "title": "Torta al Cioccolato Bianco senza Glutine",
+    "sub": "Soffice, profumata al limone — senza glutine e senza sensi di colpa",
+    "time": "50 min",
+    "kcal": "~295 kcal",
+    "diff": "★★",
+    "date": "19 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "100g di farina di riso",
+      "100g di fecola di patate (o amido di mais)",
+      "150g di yogurt bianco",
+      "100g di zucchero",
+      "2 uova",
+      "50g di olio di semi",
+      "100g di cioccolato bianco fuso",
+      "1 bustina di lievito per dolci",
+      "Scorza di 1 limone biologico e un pizzico di sale"
+    ],
+    "preparazione": [
+      "Preriscalda il forno a 180°C. Imburra e infarina uno stampo da 22-24cm.",
+      "Monta le uova con lo zucchero per 3-4 minuti con le fruste elettriche (o nel Bimby a vel 4 per 3 min), fino a ottenere un composto chiaro e spumoso.",
+      "Aggiungi l'olio di semi e lo yogurt. Mescola per 30 secondi fino a incorporare.",
+      "Unisci le farine setacciate, il cioccolato bianco fuso (lasciato intiepidire), la scorza di limone e il sale. Mescola delicatamente con una spatola dal basso verso l'alto per non smontare.",
+      "Aggiungi il lievito e mescola brevemente per incorporarlo.",
+      "Versa l'impasto nello stampo e cuoci in forno a 180°C per 35-40 minuti. Fai la prova stecchino: deve uscire asciutto.",
+      "Lascia raffreddare 10 minuti nello stampo prima di sformare."
+    ],
+    "perche": "La farina di riso e la fecola rendono questa torta naturalmente senza glutine. Lo yogurt garantisce morbidezza senza eccessi di grassi. Il cioccolato bianco apporta dolcezza senza bisogno di ulteriori aromi artificiali.",
+    "consiglio": "Per il Bimby: monta uova e zucchero 3 min vel 4, aggiungi olio e yogurt 30 sec vel 4, unisci farine e cioccolato fuso 1 min vel 4, infine il lievito 15 sec vel 5. Valori per circa 10 fette.",
+    "macro": { "kcal": 295, "proteine": 5, "carboidrati": 36, "grassi": 15, "fibre": null }
+  }
+]
