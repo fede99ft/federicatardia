@@ -36,8 +36,7 @@
       "carboidrati": 88,
       "grassi": 19,
       "fibre": 13
-    },
-    "img": "r2.jpg"
+    }
   },
   {
     "id": 3,
@@ -76,8 +75,7 @@
       "carboidrati": 85,
       "grassi": 17,
       "fibre": null
-    },
-    "img": "r3.jpg"
+    }
   },
   {
     "id": 4,
@@ -114,8 +112,7 @@
       "carboidrati": 28,
       "grassi": 6,
       "fibre": 2
-    },
-    "img": "r4.jpg"
+    }
   },
   {
     "id": 5,
@@ -156,7 +153,6 @@
       "carboidrati": 36,
       "grassi": 15,
       "fibre": null
-    },
-    "img": "r5.jpg"
+    }
   }
 ]
