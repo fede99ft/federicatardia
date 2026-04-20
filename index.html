@@ -537,7 +537,7 @@ function useRecipes() {
   const [recipes, setRecipes] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
-    fetch("recipes.json")
+    fetch("ricette.json")
       .then(r => r.json())
       .then(data => {
         // Usa img dal JSON (es. "images/r5.jpg"), oppure fallback su window.I
