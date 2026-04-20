@@ -154,5 +154,159 @@
       "grassi": 15,
       "fibre": null
     }
+  },
+  {
+    "id": 6,
+    "emoji": "🍪",
+    "cat": "Dolci",
+    "title": "Cookies Banana, Riso Soffiato e Cioccolato",
+    "sub": "Il dolcetto sfizioso che mette d'accordo tutti",
+    "time": "25 min",
+    "kcal": "~54 kcal",
+    "diff": "★",
+    "date": "20 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "1 banana matura media",
+      "30g di riso soffiato",
+      "10g di cocco rapè",
+      "1 cucchiaio di semi di chia (circa 10g)",
+      "50ml di albume",
+      "10g di gocce di cioccolato",
+      "1 cucchiaino di crema di mandorle"
+    ],
+    "preparazione": [
+      "Riduci la banana in poltiglia con una forchetta.",
+      "Aggiungi il riso soffiato, il cocco, i semi di chia, l'albume, la crema di mandorle e le gocce di cioccolato.",
+      "Mescola tutto con energia e lascia riposare 5 minuti (così i semi di chia fanno il loro lavoro!).",
+      "Forma 9 piccoli dischi su una teglia con carta forno.",
+      "Inforna a 180°C per circa 15-18 minuti.",
+      "Lasciali raffreddare per un crunch perfetto!"
+    ],
+    "perche": "La banana fornisce zuccheri naturali e potassio. I semi di chia apportano omega-3, fibre e proteine vegetali. L'albume aggiunge proteine senza grassi. Un dolcetto bilanciato che soddisfa la voglia di dolce in modo consapevole.",
+    "consiglio": "Più la banana è matura e macchiata, più i biscotti saranno dolci e profumati — niente zucchero aggiunto necessario! I valori nutrizionali sono per biscotto.",
+    "macro": {
+      "kcal": 54,
+      "proteine": 1.6,
+      "carboidrati": 7,
+      "grassi": 2.1,
+      "fibre": 1
+    }
+  },
+  {
+    "id": 7,
+    "emoji": "🥧",
+    "cat": "Pranzo",
+    "title": "Tatin di Finocchi Crunchy con Ricotta e Noci",
+    "sub": "La torta salata agrodolce che salva il finocchio dimenticato in frigo",
+    "time": "30 min",
+    "kcal": "~315 kcal",
+    "diff": "★",
+    "date": "20 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "1 rotolo di pasta sfoglia",
+      "1 finocchio grande",
+      "150g di ricotta",
+      "30g di noci",
+      "1 cucchiaio di miele",
+      "1 cucchiaio di aceto balsamico",
+      "Olio EVO, sale e pepe q.b."
+    ],
+    "preparazione": [
+      "Affetta il finocchio sottilmente.",
+      "Sulla carta forno disponi un giro d'olio EVO, sale, pepe, miele e aceto balsamico.",
+      "Sistema i finocchi sulla carta forno formando uno strato uniforme.",
+      "Copri con la sfoglia e rimbocca i bordi verso l'interno.",
+      "Inforna a 200°C per 20 minuti.",
+      "Ribalta la torta su un piatto, aggiungi la ricotta a ciuffi e le noci tritate grossolanamente.",
+      "Rimetti in forno altri 5 minuti sotto il grill. Il miracolo è compiuto!"
+    ],
+    "perche": "Il finocchio è ricco di fibre, vitamina C e antiossidanti. La ricotta apporta proteine e calcio con pochi grassi. Le noci sono una fonte preziosa di omega-3 e grassi buoni. Un piatto completo e sorprendente.",
+    "consiglio": "Più il finocchio è affettato sottile, più risulterà morbido e caramellato dopo la cottura. Usa una mandolina se ne hai una. I valori sono per una porzione da 1/4 di torta.",
+    "macro": {
+      "kcal": 315,
+      "proteine": 7,
+      "carboidrati": 28,
+      "grassi": 20,
+      "fibre": 4
+    }
+  },
+  {
+    "id": 8,
+    "emoji": "🥗",
+    "cat": "Pranzo",
+    "title": "Bowl Bilanciata: Zucca, Feta e Tahina",
+    "sub": "10 minuti, un pasto completo, colorato e gustosissimo",
+    "time": "10 min",
+    "kcal": "~615 kcal",
+    "diff": "★",
+    "date": "20 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "70g di riso basmati o integrale",
+      "200g di zucca pulita",
+      "100g di fagioli cotti",
+      "40g di feta",
+      "50g di porri",
+      "20g di olive",
+      "50g di insalata mista",
+      "15g di tahina",
+      "10g di semi misti",
+      "5g di olio EVO"
+    ],
+    "preparazione": [
+      "Metti il riso a cuocere secondo le indicazioni della confezione.",
+      "Taglia la zucca a cubetti piccoli e stufala in padella con i porri affettati e un goccio d'acqua a fuoco medio per circa 8 minuti.",
+      "Componi la bowl partendo dalla base di insalata mista e riso cotto.",
+      "Aggiungi la zucca calda, i fagioli scolati, la feta sbriciolata e le olive.",
+      "Completa con la tahina versata a filo e i semi misti per il tocco crunch."
+    ],
+    "perche": "La zucca è ricca di betacarotene e fibre. I fagioli apportano proteine vegetali e fibre solubili. La feta aggiunge calcio e sapore con una quantità moderata di grassi. La tahina è una fonte eccellente di calcio, ferro e grassi buoni. Una bowl davvero completa.",
+    "consiglio": "Salvatempo: usa la zucca già tagliata e i fagioli in barattolo — in meno di 10 minuti sei a tavola! Il riso avanzato dal giorno prima funziona benissimo scaldato in padella con un filo d'olio.",
+    "macro": {
+      "kcal": 615,
+      "proteine": 24,
+      "carboidrati": 76,
+      "grassi": 23,
+      "fibre": 14
+    }
+  },
+  {
+    "id": 9,
+    "emoji": "🐟",
+    "cat": "Pranzo",
+    "title": "Platessa Croccante e Patate Smashed",
+    "sub": "Crunch senza friggere, proteine senza sensi di colpa",
+    "time": "40 min",
+    "kcal": "~495 kcal",
+    "diff": "★",
+    "date": "20 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "300g di filetti di platessa",
+      "400g di patate",
+      "1 uovo",
+      "40g di panko",
+      "Farina q.b.",
+      "15g di olio EVO",
+      "Paprica, sale, pepe, erbe aromatiche q.b."
+    ],
+    "preparazione": [
+      "Passa i filetti di platessa nella farina, poi nell'uovo sbattuto, poi nel panko mescolato con paprica, sale e pepe. Disponili sulla teglia.",
+      "Inforna in friggitrice ad aria a 200°C per 20 minuti, fino a doratura.",
+      "Lessa le patate in acqua salata finché sono morbide (circa 20 min) o al microonde per 10 min. Scolale, disponile su una teglia con carta forno e schiacciale con il fondo di un bicchiere. Condiscile con olio EVO, sale, pepe ed erbe aromatiche.",
+      "Cospargi le patate con il panko rimasto dalla panatura del pesce — è l'arma segreta per la croccantezza!",
+      "Inforna le patate a 230°C per 15 minuti."
+    ],
+    "perche": "La platessa è un pesce magro ricchissimo di proteine, ideale per chi vuole tenere sotto controllo i grassi senza rinunciare alla sazietà. Le patate forniscono carboidrati complessi e potassio. Insieme creano un pasto bilanciato e completo.",
+    "consiglio": "Usa le patate novelle: sono più piccole e verranno più croccanti! Il panko avanzato dalla panatura del pesce non si butta — è l'arma segreta per le patate croccantissime.",
+    "macro": {
+      "kcal": 495,
+      "proteine": 32,
+      "carboidrati": 55,
+      "grassi": 16,
+      "fibre": 4
+    }
   }
 ]
