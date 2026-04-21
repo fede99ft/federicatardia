@@ -308,5 +308,82 @@
       "grassi": 16,
       "fibre": 4
     }
+  },
+  {
+    "id": 10,
+    "emoji": "🍛",
+    "cat": "Cena",
+    "title": "Polpette di Lenticchie con Crema di Cocco e Curry",
+    "sub": "Sapore esotico, pochissimo sporco e risultato da ristorante indiano",
+    "time": "30 min",
+    "kcal": "~310 kcal",
+    "diff": "★",
+    "date": "21 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "250g di lenticchie cotte",
+      "1 uovo",
+      "30g di parmigiano grattugiato",
+      "40-50g di pangrattato",
+      "Sale e pepe q.b.",
+      "½ cipolla",
+      "200ml di latte di cocco (in lattina)",
+      "2 cucchiaini di curry in polvere",
+      "Olio EVO q.b."
+    ],
+    "preparazione": [
+      "Metti la cipolla nel Bimby: 5 sec. vel. 7. Aggiungi l'olio: 3 min. 100°C vel. 1.",
+      "Versa il latte di cocco e il curry: 5 min. 90°C vel. 2. La salsa è pronta.",
+      "Nel frattempo frulla o schiaccia le lenticchie con una forchetta.",
+      "Unisci le lenticchie con uovo, parmigiano e pangrattato. Mescola fino a ottenere un composto compatto — regola con il pangrattato se troppo morbido.",
+      "Forma circa 12-14 polpette e rosolale in padella con un filo d'olio finché non sono dorate su tutti i lati.",
+      "Tuffa le polpette nella salsa calda e servi subito."
+    ],
+    "perche": "Le lenticchie sono una fonte eccellente di proteine vegetali, fibre e ferro. Il latte di cocco apporta grassi saturi a catena media, facilmente utilizzati dall'organismo come energia. Il curry con la curcumina ha potenti proprietà antinfiammatorie.",
+    "consiglio": "Non hai il Bimby? Nessun problema — soffriggi la cipolla in padella, aggiungi il latte di cocco e il curry e lascia sobbollire 5 minuti a fuoco basso. Il risultato è identico!",
+    "macro": {
+      "kcal": 310,
+      "proteine": 15,
+      "carboidrati": 26,
+      "grassi": 16,
+      "fibre": 6
+    }
+  },
+  {
+    "id": 11,
+    "emoji": "🍌",
+    "cat": "Colazione",
+    "title": "Overnight Yogurt con Riso Soffiato, Cocco e Cioccolato",
+    "sub": "La colazione che si prepara la sera e ti aspetta al mattino",
+    "time": "5 min + riposo",
+    "kcal": "~370 kcal",
+    "diff": "★",
+    "date": "21 Aprile 2025",
+    "featured": false,
+    "ingredienti": [
+      "150g di yogurt greco al caffè",
+      "20g di riso soffiato",
+      "10g di cocco rapè",
+      "10g di semi di chia",
+      "10g di cioccolato fondente",
+      "½ banana"
+    ],
+    "preparazione": [
+      "In un barattolo o ciotola versa lo yogurt greco al caffè.",
+      "Aggiungi i semi di chia e mescola bene — si gonfieranno durante la notte creando una consistenza cremosa.",
+      "Copri e metti in frigo per almeno 6-8 ore (o tutta la notte).",
+      "Al mattino, sciogli il cioccolato fondente nel microonde per 30 secondi e versalo sopra.",
+      "Aggiungi il riso soffiato, il cocco rapè e la mezza banana a fette.",
+      "Mangia subito per mantenere il crunch del riso soffiato!"
+    ],
+    "perche": "Lo yogurt greco è ricco di proteine e probiotici per la salute intestinale. I semi di chia apportano omega-3, fibre e calcio. Il cocco rapè aggiunge grassi buoni e sazietà. La banana fornisce potassio e zuccheri naturali per l'energia mattutina.",
+    "consiglio": "Aggiungi riso soffiato e cocco solo al momento di mangiare per preservarne la croccantezza. Puoi preparare più barattoli di base yogurt+chia per tutta la settimana!",
+    "macro": {
+      "kcal": 370,
+      "proteine": 18,
+      "carboidrati": 42,
+      "grassi": 13,
+      "fibre": 7
+    }
   }
 ]
